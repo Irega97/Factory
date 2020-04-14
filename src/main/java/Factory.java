@@ -1,10 +1,6 @@
-package edu.upc.eetac.dsa;
-
 import org.apache.log4j.Logger;
 
 import java.util.HashMap;
-
-import static java.lang.Class.*;
 
 public class Factory {
     final static Logger log = Logger.getLogger(Factory.class.getName());
