@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Factory {
     final static Logger log = Logger.getLogger(Factory.class.getName());
 
-    private static final String PACKAGE = "edu.upc.eetac.dsa";
+    private static final String PACKAGE = "";
     private static Factory instance;
     private HashMap<String, Command> cache;
 
@@ -26,7 +26,7 @@ public class Factory {
         Class theClass = null;
         try {
             //We try to load the classes, specially the classes C1,C2 and C3
-            theClass = Class.forName(PACKAGE+"."+idCommand);
+            theClass = Class.forName(idCommand);
             command = (Command)theClass.newInstance();
         } catch (InstantiationException e) {
             //Error message because the class that we're trying to load isn't instantiated
@@ -50,12 +50,12 @@ public class Factory {
         Command c = cache.get(idCommand);
         if (c==null) {
             //If the class doesn't exist in the cache HashMap, we have to put it
-            log.info("utilitzem el carregador de classes");
+            System.out.println("utilitzem el carregador de classes");
             c = getCommand2(idCommand);
             cache.put(idCommand, c);
         }
         else {
-            log.info("CACHE!!!");
+            System.out.println("CACHE!!!");
         }
         //Return the Command
         return c;
